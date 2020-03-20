@@ -2,7 +2,7 @@
 A basic Todos App made with [Svelete](https://svelte.dev/) 
 deployed [here](https://svelete-todo-app.surge.sh/). This is Just for learning new frameworks and completing my goal of 2 hours or coding a day.
 
-#### Total time: 2:15 on 3-20-20
+#### Total time: 2:15 on 3-19-20
 
 
 
