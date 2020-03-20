@@ -1,5 +1,5 @@
 <script>
-  import TodoItem from "./TodoItem";
+  import TodoItem from "./TodoItem.svelte";
 
   let newTodoTitle = "";
   let currentFilter = "all";
@@ -37,7 +37,7 @@
       ? todos
       : currentFilter === "completed"
       ? todos.filter(todo => todo.completed)
-      : todos.filter(todos => !todo.completed);
+      : todos.filter(todo => !todo.completed);
 
   function checkAllTodos(event) {
     todos.forEach(todo => (todo.completed = event.target.checked));
