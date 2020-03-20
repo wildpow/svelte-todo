@@ -3,7 +3,7 @@
 
   let newTodoTitle = "";
   let currentFilter = "all";
-  let next = 4;
+  let nextId = 4;
 
   let todos = [
     {
@@ -22,6 +22,22 @@
       completed: false
     }
   ];
+
+  function addTodo(event) {
+    if (event.key === "Enter") {
+      todos = [...todos, { id: nextId, completed: false, title: newTodoTitle }];
+      nextId = nextId + 1;
+      newTodoTitle = "";
+    }
+  }
+
+  $: todosRemaining = filteredTodos.filter(todo => !todo.completed).length;
+  $: filteredTodos =
+    currentFilter === "all"
+      ? todos
+      : currentFilter === "completed"
+      ? todos.filter(todo => todo.completed)
+      : todos.filter(todos => !todo.completed);
 </script>
 
 <div class="container">
@@ -72,6 +88,9 @@
         class:active={currentFilter === 'completed'}>
         completed
       </button>
+    </div>
+    <div>
+      <button on:click={clearCompleted}>Clear Completed</button>
     </div>
   </div>
 </div>
