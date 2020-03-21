@@ -3,7 +3,7 @@ A Todos App that you can create, delete, check completed and filter viewing by a
 
 #### This is Just for learning new frameworks and completing my goal of 2 hours of coding a day.
 _____
-## Next Steps
+## 🔧 Roadmap
 - Style app using [Tailwind CSS](https://tailwindcss.com/).
 - Learn more about Svelte.
 - Add offline/persistent storage for todos like localStorage or IndexedDB.
