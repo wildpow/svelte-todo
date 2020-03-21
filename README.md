@@ -7,6 +7,6 @@ deployed [here](https://svelete-todo-app.surge.sh/). This is Just for learning n
 
 
 ## Next Steps
-- Setuping and styling app with [Tailwind CSS](https://tailwindcss.com/).
+- Setup and style app with [Tailwind CSS](https://tailwindcss.com/).
 - Learn more about Svelte and maybe adding features.
 - Add offline/persistent storage for todos like localStorage or IndexedDB.
