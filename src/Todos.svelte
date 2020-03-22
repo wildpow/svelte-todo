@@ -72,6 +72,10 @@
 </script>
 
 <style>
+  h1 {
+    @apply bg-black text-white;
+  }
+
   .container {
     max-width: 800px;
     margin: 10px auto;
