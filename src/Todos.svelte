@@ -72,94 +72,76 @@
 </script>
 
 <style>
-  .container {
-    max-width: 800px;
-    margin: 10px auto;
+  .btn {
+    @apply font-bold py-2 px-4 rounded;
   }
-  .logo {
-    display: block;
-    margin: 20px auto;
-    width: 50%;
+  .btn-blue {
+    @apply bg-blue-500 text-white;
   }
-  .todo-input {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  .inner-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 16px;
-    border-top: 1px solid lightgray;
-    padding-top: 15px;
-    margin-bottom: 13px;
-  }
-  .inner-container-input {
-    margin-right: 12px;
-  }
-  button {
-    font-size: 14px;
-    background-color: white;
-    appearance: none;
-  }
-  button:hover {
-    background: lightseagreen;
+  .btn-blue:hover {
+    @apply bg-blue-700;
   }
 </style>
 
-<div class="container">
-  <h1 class="logo">Svelte Todos</h1>
-  <input
-    type="text"
-    class="todo-input"
-    placeholder="Insert todo item..."
-    bind:value={newTodoTitle}
-    on:keydown={addTodo} />
+<div class="w-full max-w-2xl mx-auto">
+  <h1 class="text-gray-500 text-3xl">Svelte Todos</h1>
+  <div class="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4 mt-2">
 
-  {#each filteredTodos as todo}
-    <div class="todo-item">
-      <TodoItem
-        {...todo}
-        on:deleteTodo={handleDeleteTodo}
-        on:toggleComplete={handleToggleComplete} />
+    <input
+      type="text"
+      class="shadow appearance-none border rounded w-full py-2 px-3
+      text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      placeholder="Insert todo item..."
+      bind:value={newTodoTitle}
+      on:keydown={addTodo} />
+    <div class="py-4 bg-white">
+
+      {#each filteredTodos as todo}
+        <TodoItem
+          {...todo}
+          on:deleteTodo={handleDeleteTodo}
+          on:toggleComplete={handleToggleComplete} />
+      {/each}
     </div>
-  {/each}
 
-  <div class="inner-container">
-    <div>
-      <label for="">
+    <div
+      class="flex justify-between mb-4 px-2 text-gray-500 font-bold items-center">
+      <label class="flex items-center">
         <input
           type="checkbox"
-          class="inner-container-input"
+          class="flex leading-tight"
           on:change={checkAllTodos} />
-        Check All
+        <span class="pl-2">Check All</span>
       </label>
+      <div>{todosRemaining} items left</div>
     </div>
-    <div>{todosRemaining} items left</div>
-  </div>
 
-  <div class="inner-container">
-    <div>
-      <button
-        on:click={() => updateFilter('all')}
-        class:active={currentFilter === 'all'}>
-        All
-      </button>
-      <button
-        on:click={() => updateFilter('active')}
-        class:active={currentFilter === 'active'}>
-        Active
-      </button>
-      <button
-        on:click={() => updateFilter('completed')}
-        class:active={currentFilter === 'completed'}>
-        completed
-      </button>
-    </div>
-    <div>
-      <button on:click={clearCompleted}>Clear Completed</button>
+    <div class="flex justify-between ">
+      <div>
+        <button
+          class="btn btn-blue"
+          on:click={() => updateFilter('all')}
+          class:active={currentFilter === 'all'}>
+          All
+        </button>
+        <button
+          class="btn btn-blue"
+          on:click={() => updateFilter('active')}
+          class:active={currentFilter === 'active'}>
+          Active
+        </button>
+        <button
+          class="btn btn-blue"
+          on:click={() => updateFilter('completed')}
+          class:active={currentFilter === 'completed'}>
+          completed
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-blue" on:click={clearCompleted}>
+          Clear Completed
+        </button>
+      </div>
     </div>
   </div>
 </div>

@@ -2,6 +2,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  variants: {},
+  variants: { backgroundColor: ['responsive', 'even', 'odd', 'hover', 'focus'], },
   plugins: [],
 }

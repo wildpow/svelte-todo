@@ -18,40 +18,20 @@
 </script>
 
 <style>
-  .todo-item {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation-duration: 0.3s;
-  }
-  .remove-item {
-    cursor: pointer;
-    margin-left: 15px;
-  }
-  .remove-item:hover {
-    color: lightseagreen;
-  }
-  .todo-item-left {
-    display: flex;
-    align-items: center;
-  }
-  .todo-item-label {
-    border: 1px solid white;
-  }
-  .completed {
-    text-decoration: line-through;
-    color: gray;
-  }
+
 </style>
 
-<div class="todo-item">
-  <div class="todo-item-left" transition:fly={{ t: 20, duration: 300 }}>
+<label
+  class="flex justify-between py-2 my-2 mt-0 text-gray-500 font-bold
+  odd:bg-gray-200 even:bg-blue-100"
+  transition:fly={{ t: 20, duration: 300 }}>
+  <div class="flex items-center">
     <input
+      class="flex ml-2 leading-tight"
       type="checkbox"
       bind:checked={completed}
       on:change={toggleCompleted} />
-    <div class="todo-item-label" class:completed>{title}</div>
-    <div class="remove-item" on:click={deleteTodo}>x</div>
+    <span class="pl-2" class:completed>{title}</span>
   </div>
-</div>
+  <div class="text-xl mr-2 hover:text-blue-500" on:click={deleteTodo}>x</div>
+</label>
